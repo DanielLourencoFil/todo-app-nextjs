@@ -7,20 +7,22 @@ const HomePage: NextPage = () => {
 		<Layout title="MyTodo App">
 			<Grid container spacing={2}>
 				<Grid item xs={12} sm={4}>
-					<Card sx={{ height: "calc(100vh-100px)" }}>
+					<Card sx={{ height: "calc(100vh - 100px)" }}>
 						<CardHeader title="Pending"></CardHeader>
 						<CardContent>{/* {new task} */}</CardContent>
 					</Card>
 				</Grid>
 				<Grid item xs={12} sm={4}>
-					<Card>
+					<Card sx={{ height: "calc(100vh - 100px)" }}>
 						<CardHeader title="On Progress"></CardHeader>
+						<CardContent>{/* {new task} */}</CardContent>
 					</Card>
 				</Grid>
 				<Grid item xs={12} sm={4}>
-					<Card sx={{ height: "calc(100vh-100px)" }}>
+					<Card sx={{ height: "calc(100vh - 100px)" }}>
 						{" "}
 						<CardHeader title="Completed"></CardHeader>
+						<CardContent>{/* {new task} */}</CardContent>
 					</Card>
 				</Grid>
 			</Grid>
