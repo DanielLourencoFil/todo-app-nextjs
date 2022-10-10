@@ -5,7 +5,10 @@ export interface ContextProps {
 	openSideMenu: () => void;
 	closeSideMenu: () => void;
 	isAddEntry: boolean;
-	setIsAddEntry: (value: boolean) => void;
+	isDragging: boolean;
+	setAddEntry: (value: boolean) => void;
+	setStartDragging: () => void;
+	setEndDragging: () => void;
 }
 export const UIContext = createContext({} as ContextProps);
 

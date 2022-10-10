@@ -23,13 +23,7 @@ const Entries_INITIAL_STATE: EntriesState = {
 			status: "pending",
 			createdAt: Date.now(),
 		},
-		{
-			_id: uuidv4(),
-			description:
-				"Irure ipsum nulla voluptate laboris sit dolore veniam sint.",
-			status: "pending",
-			createdAt: Date.now(),
-		},
+
 		{
 			_id: uuidv4(),
 			description:
@@ -43,13 +37,6 @@ const Entries_INITIAL_STATE: EntriesState = {
 				"Proident id minim veniam nisi dolor Lorem do fugiat ullamco reprehenderit exercitation.",
 			status: "finished",
 			createdAt: Date.now() - 20500500,
-		},
-		{
-			_id: uuidv4(),
-			description:
-				"Proident id minim veniam nisi dolor Lorem do fugiat ullamco reprehenderit exercitation 2222.",
-			status: "in-progress",
-			createdAt: Date.now() - 30500500,
 		},
 	],
 };
@@ -67,11 +54,16 @@ export const EntriesProvider = ({ children }: Props) => {
 		dispatch({ type: "[Entry]-add", payload: newEntry });
 	};
 
+	const entryStatusUpdated = (entry: Entry) => {
+		dispatch({ type: "[Entry]-updated", payload: entry });
+	};
+
 	return (
 		<EntriesContext.Provider
 			value={{
 				...state,
 				addNewEntry,
+				entryStatusUpdated,
 			}}
 		>
 			{children}
