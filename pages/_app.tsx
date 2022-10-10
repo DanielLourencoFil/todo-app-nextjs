@@ -10,14 +10,14 @@ import { darkTheme } from "../Themes";
 
 function MyApp({ Component, pageProps }: AppProps) {
 	return (
-		<EntriesProvider>
-			<UIProvider>
+		<UIProvider>
+			<EntriesProvider>
 				<ThemeProvider theme={darkTheme}>
 					<CssBaseline />
 					<Component {...pageProps} />
 				</ThemeProvider>
-			</UIProvider>
-		</EntriesProvider>
+			</EntriesProvider>
+		</UIProvider>
 	);
 }
 

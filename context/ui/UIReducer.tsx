@@ -2,7 +2,8 @@ import { UIState } from "./UIProvider";
 
 type UIActionType =
 	| { type: "UI-open-sidemenu" }
-	| { type: "UI-close-sidemenu" };
+	| { type: "UI-close-sidemenu" }
+	| { type: "UI-isAdd-task"; payload: boolean };
 
 export const UIReducer = (state: UIState, action: UIActionType): UIState => {
 	switch (action.type) {
@@ -16,6 +17,12 @@ export const UIReducer = (state: UIState, action: UIActionType): UIState => {
 				...state,
 				isSideMenuOpen: false,
 			};
+		case "UI-isAdd-task":
+			return {
+				...state,
+				isAddEntry: action.payload,
+			};
+
 		default:
 			return state;
 	}

@@ -4,6 +4,7 @@ import { EntriesContext, entriesReducer } from "./";
 import { v4 as uuidv4 } from "uuid";
 
 import { Entry } from "../../interfaces";
+import { NewEntry } from "../../compoments/ui/entries/NewEntry";
 
 interface Props {
 	children: ReactNode;
@@ -56,10 +57,21 @@ const Entries_INITIAL_STATE: EntriesState = {
 export const EntriesProvider = ({ children }: Props) => {
 	const [state, dispatch] = useReducer(entriesReducer, Entries_INITIAL_STATE);
 
+	const addNewEntry = (description: string) => {
+		const newEntry: Entry = {
+			_id: uuidv4(),
+			description,
+			createdAt: Date.now(),
+			status: "pending",
+		};
+		dispatch({ type: "[Entry]-add", payload: newEntry });
+	};
+
 	return (
 		<EntriesContext.Provider
 			value={{
 				...state,
+				addNewEntry,
 			}}
 		>
 			{children}
